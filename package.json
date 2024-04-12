@@ -1,0 +1,47 @@
+{
+  "name": "zustand-injectors",
+  "description": "A sweet way of lazy load slices",
+  "version": "0.0.1",
+  "author": "Danilo Britto",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zustandjs/zustand-injectors.git"
+  },
+  "source": "./src/index.ts",
+  "main": "./dist/index.js",
+  "umd:main": "./dist/index.umd.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.modern.mjs",
+      "default": "./dist/index.umd.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "compile": "microbundle -f modern,umd",
+    "check": "biome check ./src",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "react",
+    "zustand",
+    "injectors"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "1.6.4",
+    "microbundle": "^0.15.1",
+    "vitest": "^1.5.0"
+  },
+  "peerDependencies": {
+    "zustand": "^4.5.2"
+  }
+}
