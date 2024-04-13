@@ -3,13 +3,11 @@ import type { StateCreator, StoreMutatorIdentifier } from "zustand/vanilla";
 type StoreInjectors<S> = {
   asyncSliceInitializers: Record<
     string,
-    // biome-ignore lint/suspicious/noExplicitAny: any can be any slice
-    () => Promise<StateCreator<S, [], [], any>>
+    () => Promise<StateCreator<S, [], [], unknown>>
   >;
   injectAsyncSliceInitializer: (
     key: string,
-    // biome-ignore lint/suspicious/noExplicitAny: any can be any slice
-    asyncSliceInitializer: () => Promise<StateCreator<S, [], [], any>>,
+    asyncSliceInitializer: () => Promise<StateCreator<S, [], [], unknown>>,
   ) => void;
 };
 
@@ -22,8 +20,7 @@ type Injectors = <
   initializer: StateCreator<T, [...Mps, ["injectors", never]], Mcs>,
   initialAsyncSliceInitializers?: Record<
     string,
-    // biome-ignore lint/suspicious/noExplicitAny: any can be any slice
-    () => Promise<StateCreator<T, [], [], any>>
+    () => Promise<StateCreator<T, [], [], unknown>>
   >,
 ) => StateCreator<T, Mps, [["injectors", U], ...Mcs]>;
 
@@ -37,8 +34,7 @@ type InjectorsImpl = <T>(
   storeInitializer: StateCreator<T, [], []>,
   initialSliceInitializers?: Record<
     string,
-    // biome-ignore lint/suspicious/noExplicitAny: any can be any slice
-    () => Promise<StateCreator<T, [], [], any>>
+    () => Promise<StateCreator<T, [], [], unknown>>
   >,
 ) => StateCreator<T, [], []>;
 
@@ -50,8 +46,7 @@ declare module "zustand/vanilla" {
 }
 
 const injectAsyncSliceInitializers = async <T>(
-  // biome-ignore lint/suspicious/noExplicitAny: any can be any slice
-  ...args: Parameters<StateCreator<T, [["injectors", T]], [], any>>
+  ...args: Parameters<StateCreator<T, [["injectors", T]], [], unknown>>
 ): Promise<void> => {
   const [, , store] = args;
 

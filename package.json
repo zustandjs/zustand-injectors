@@ -1,7 +1,7 @@
 {
   "name": "zustand-injectors",
   "description": "A sweet way of lazy load slices",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Danilo Britto",
   "repository": {
     "type": "git",
