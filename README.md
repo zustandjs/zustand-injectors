@@ -30,8 +30,6 @@ export const createDecrementSlice: StateCreator<
   { decrementCount: () => void }
 > = (set) => ({
   decrementCount: () => {
-    console.log("decrement count");
-
     set((currentState) => ({ count: currentState.count - 1 }));
   },
 });
@@ -97,8 +95,6 @@ export const createDecrementSlice: StateCreator<
   { decrementCount: () => void }
 > = (set) => ({
   decrementCount: () => {
-    console.log("decrement count");
-
     set((currentState) => ({ count: currentState.count - 1 }));
   },
 });
