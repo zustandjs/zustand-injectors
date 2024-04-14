@@ -2,7 +2,7 @@
   "name": "zustand-injectors",
   "private": false,
   "description": "A sweet way of lazy load slices",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Danilo Britto",
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
     "dist"
   ],
   "scripts": {
-    "compile": "vite build",
+    "build": "vite build",
     "check": "biome check ./src",
     "test": "vitest run"
   },
